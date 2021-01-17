@@ -9,4 +9,3 @@ gradle.properties
 .DS_Store
 classes/
 gradle/.DS_STORE
-local.properties
