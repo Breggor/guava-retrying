@@ -79,7 +79,7 @@ repositories {
 }
 
 dependencies {
-    compile 'com.google.guava:guava:30.0-jre'
+    compile 'com.google.guava:guava:30.1-jre'
 
     // junit testing
     testCompile 'junit:junit:4.13.1'
