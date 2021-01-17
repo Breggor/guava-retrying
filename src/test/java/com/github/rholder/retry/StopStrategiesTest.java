@@ -16,12 +16,12 @@
 
 package com.github.rholder.retry;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import org.junit.Test;
 
 import java.util.concurrent.TimeUnit;
 
-import org.junit.Test;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 public class StopStrategiesTest {
 
@@ -39,9 +39,9 @@ public class StopStrategiesTest {
 
     @Test
     public void testStopAfterDelayWithMilliseconds() {
-        assertFalse(StopStrategies.stopAfterDelay(1000L).shouldStop(failedAttempt(2, 999L)));
-        assertTrue(StopStrategies.stopAfterDelay(1000L).shouldStop(failedAttempt(2, 1000L)));
-        assertTrue(StopStrategies.stopAfterDelay(1000L).shouldStop(failedAttempt(2, 1001L)));
+        assertFalse(StopStrategies.stopAfterDelay(1000L, TimeUnit.MILLISECONDS).shouldStop(failedAttempt(2, 999L)));
+        assertTrue(StopStrategies.stopAfterDelay(1000L, TimeUnit.MILLISECONDS).shouldStop(failedAttempt(2, 1000L)));
+        assertTrue(StopStrategies.stopAfterDelay(1000L, TimeUnit.MILLISECONDS).shouldStop(failedAttempt(2, 1001L)));
     }
 
     @Test

@@ -16,13 +16,13 @@
 
 package com.github.rholder.retry;
 
-import com.google.common.util.concurrent.UncheckedTimeoutException;
 import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
+import java.util.concurrent.TimeoutException;
 
 /**
  * @author Jason Dunkelberger (dirkraft)
@@ -30,8 +30,8 @@ import java.util.concurrent.TimeUnit;
 public class AttemptTimeLimiterTest {
 
     Retryer<Void> r = RetryerBuilder.<Void>newBuilder()
-            .withAttemptTimeLimiter(AttemptTimeLimiters.<Void>fixedTimeLimit(1, TimeUnit.SECONDS))
-            .build();
+        .withAttemptTimeLimiter(AttemptTimeLimiters.<Void>fixedTimeLimit(1, TimeUnit.SECONDS))
+        .build();
 
     @Test
     public void testAttemptTimeLimit() throws ExecutionException, RetryException {
@@ -46,7 +46,7 @@ public class AttemptTimeLimiterTest {
             Assert.fail("Expected timeout exception");
         } catch (ExecutionException e) {
             // expected
-            Assert.assertEquals(UncheckedTimeoutException.class, e.getCause().getClass());
+            Assert.assertEquals(TimeoutException.class, e.getCause().getClass());
         }
     }
 

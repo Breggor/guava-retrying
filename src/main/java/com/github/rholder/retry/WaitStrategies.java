@@ -91,7 +91,7 @@ public final class WaitStrategies {
         Preconditions.checkNotNull(minimumTimeUnit, "The minimum time unit may not be null");
         Preconditions.checkNotNull(maximumTimeUnit, "The maximum time unit may not be null");
         return new RandomWaitStrategy(minimumTimeUnit.toMillis(minimumTime),
-                maximumTimeUnit.toMillis(maximumTime));
+            maximumTimeUnit.toMillis(maximumTime));
     }
 
     /**
@@ -112,7 +112,7 @@ public final class WaitStrategies {
         Preconditions.checkNotNull(initialSleepTimeUnit, "The initial sleep time unit may not be null");
         Preconditions.checkNotNull(incrementTimeUnit, "The increment time unit may not be null");
         return new IncrementingWaitStrategy(initialSleepTimeUnit.toMillis(initialSleepTime),
-                incrementTimeUnit.toMillis(increment));
+            incrementTimeUnit.toMillis(increment));
     }
 
     /**
@@ -204,6 +204,7 @@ public final class WaitStrategies {
      * {@code function} determines how the sleep time should be calculated for the given
      * {@code exceptionClass}. If the exception does not match, a wait time of 0 is returned.
      *
+     * @param <T>            throwable
      * @param function       function to calculate sleep time
      * @param exceptionClass class to calculate sleep time from
      * @return a wait strategy calculated from the failed attempt
